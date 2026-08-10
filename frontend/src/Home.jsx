@@ -82,7 +82,7 @@ function Home() {
           <input type="text" value={name} onChange={handleNameChange} placeholder="Enter your name" className='bg-slate-200 rounded-xl text-1xl px-4 py-2 my-2 border border-slate-400' />
           {/* <input type="file" value="" onChange={handleFileChange}></input> */}
         </form>
-        <div className={`py-4 m-8 rounded-4xl text-lg lg:w-1/3 w-5/6 place-self-center border border-dashed border-slate-400 ${file == null ? "bg-gray-100" : "bg-emerald-100 "}`} onDrop={handleDrop} onDragOver={(event) => event.preventDefault()}>
+        <div className={`py-4 m-4 rounded-4xl text-lg lg:w-1/3 w-5/6 place-self-center border border-dashed border-slate-400 ${file == null ? "bg-gray-100" : "bg-emerald-100 "}`} onDrop={handleDrop} onDragOver={(event) => event.preventDefault()}>
           <div className='m-4 bg-blue-500 text-white rounded-full border font-bold w-38 place-self-center p-4'>
             <input type="file" hidden id="browse" name="file" onChange={handleFileChange} accept=".png, .jpg, .jpeg" />
             <label htmlFor="browse" >Browse Files</label>
@@ -96,7 +96,7 @@ function Home() {
             )}
           </div>
         </div>
-        <button type="submit" form="initial-form" className='text-xl p-4 px-8 rounded-lg bg-slate-200 place-self-center my-4'>Continue</button>
+        <button type="submit" form="initial-form" className='text-xl p-4 px-8 rounded-lg bg-slate-200 place-self-center md:my-0 my-4'>Continue</button>
       </div>
     </div>
 

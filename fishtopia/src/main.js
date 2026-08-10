@@ -85,10 +85,11 @@ import { sound } from '@pixi/sound';
     const speed = result[i][5]
     const sleeplength = result[i][6]
     const sleephabits = result[i][7]
+    const philosophy = result[i][8]
 
     const texture = Assets.get(assets[i])
 
-    const fish = new Fish(texture, name, size, sociallvl, anxietylvl, speed, sleeplength, sleephabits);
+    const fish = new Fish(texture, name, size, sociallvl, anxietylvl, speed, sleeplength, sleephabits, philosophy);
 
     fishes.push(fish);
 
@@ -97,6 +98,7 @@ import { sound } from '@pixi/sound';
     fish.x = Math.random() * app.canvas.width;
     fish.y = Math.random() * app.canvas.height;
 
+    uiLayer.attach(fish.speech);
     uiLayer.attach(fish.ui);
   }
 
@@ -115,8 +117,6 @@ import { sound } from '@pixi/sound';
   labelButton.x = (labelButton.width) / 1.5
   labelButton.y = window.innerHeight - (labelButton.height)/2 - 20
   app.stage.addChild(labelButton);
-
-
 
   labelButton.onclick = (event) => {
     if (labelButton.showLabels) {

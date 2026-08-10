@@ -42,8 +42,9 @@ def final_upload():
     speed = request.form.get("speed")
     sleeplength = request.form.get("sleeplength")
     sleephabits = request.form.get("sleephabits")
+    philosophy = request.form.get("philosophy")
 
-    newRow = pd.DataFrame([[id, name, size, sociallvl, anxietylvl, speed, sleeplength, sleephabits]])
+    newRow = pd.DataFrame([[id, name, size, sociallvl, anxietylvl, speed, sleeplength, sleephabits, philosophy]])
     newRow.to_csv("database.csv", mode="a", index=False, header=False)
     
     return ("ok")

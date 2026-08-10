@@ -41,6 +41,7 @@ function App() {
         inputs["speed"] = inputs["speed"] || e.target.speed.value
         inputs["sleeplength"] = inputs["sleeplength"] || e.target.sleeplength.value
         inputs["sleephabits"] = inputs["sleephabits"] || e.target.sleephabits.value
+        inputs["philosophy"] = inputs["philosophy"] || e.target.sleephabits.value
 
         const formData = new FormData();
         formData.append("name", name);
@@ -51,6 +52,7 @@ function App() {
         formData.append("speed", inputs["speed"]);
         formData.append("sleeplength", inputs["sleeplength"]);
         formData.append("sleephabits", inputs["sleephabits"]);
+        formData.append("philosophy", inputs["philosophy"]);
         console.log("form submitted: ", inputs)
 
         try {
@@ -91,15 +93,15 @@ function App() {
             <div className="lg:m-0 m-4 md:px-8 px-4 font-semibold text-gray-900 bg-gray-100 border border-gray-300 rounded-4xl">
                 <form id="customize-form" onSubmit={submitForm}>
                     <h1 className="text-2xl font-bold pt-4">Fish Editor</h1>
-                    <div className="my-4">
+                    <div className="my-2">
                         <label className="text-xl">Size</label>
                         <div>
                             Small<input className={rangeStyle} type="range" name="size" min="1" max="5" value={inputs.size} onChange={handleChange} />Large
                         </div>
                     </div>
-                    <div className="my-4 ">
+                    <div className="my-2 ">
                         <label className="text-xl">Fish Social Level</label>
-                        <div className="mt-4">
+                        <div className="mt-2">
                             <input id="introvert" className={radioStyle} type="radio" name="sociallvl" value="introvert" onChange={handleChange} />
                             <label for="introvert" className="">Introvert</label>
                             <input id="inbetween" className={radioStyle} type="radio" name="sociallvl" value="inbetween" onChange={handleChange} defaultChecked />
@@ -108,35 +110,49 @@ function App() {
                             <label for="extrovert" className="">Extovert</label>
                         </div>
                     </div>
-                    <div className="my-4 ">
+                    <div className="my-2 ">
                         <label className="text-xl">Fish Anxiety Level</label>
                         <div>
                             Frantic<input className={rangeStyle} type="range" name="anxietylvl" min="1" max="5" value={inputs.anxietylvl} onChange={handleChange} />Calm
                         </div>
                     </div>
-                    <div className="my-4">
+                    <div className="my-2">
                         <label className="text-xl">Speed</label>
                         <div>
                             Slow<input className={rangeStyle} type="range" name="speed" min="1" max="5" value={inputs.speed} onChange={handleChange} />Fast
                         </div>
 
                     </div>
-                    <div className="my-4">
+                    <div className="my-2">
                         <label className="text-xl">Amount of Sleep Needed</label>
-
                         <div>
                             None<input className={rangeStyle} type="range" name="sleeplength" min="1" max="5" value={inputs.sleeplength} onChange={handleChange} />A Lot
                         </div>
                     </div>
-                    <div className="my-4 ">
+                    <div className="my-2 ">
                         <label className="text-xl">Fish Sleep Habits</label>
-                        <div className="mt-4">
+                        <div className="mt-2">
                             <input id="morning" className={radioStyle} type="radio" name="sleephabits" value="21" onChange={handleChange} />
                             <label for="morning" className="">Morning Fish</label>
                             <input id="inbetween" className={radioStyle} type="radio" name="sleephabits" value="23" onChange={handleChange} defaultChecked />
                             <label for="inbetween" className="">In Between</label>
                             <input id="night" className={radioStyle} type="radio" name="sleephabits" value="1" onChange={handleChange} />
                             <label for="night" className="">Night Fish</label>
+                        </div>
+                    </div>
+                    <div className="my-2">
+                        <label className="text-xl">Fish Philosophy</label>
+                        <div className="mt-2">
+                            <input id="stoicism" className={radioStyle} type="radio" name="philosophy" value="stoicism" onChange={handleChange} />
+                            <label for="stoicism" className="">Stoicism</label>
+                            <input id="utilitarianism" className={radioStyle} type="radio" name="philosophy" value="utilitarianism" onChange={handleChange} />
+                            <label for="utilitarianism" className="">Utilitarianism</label>
+                            <input id="hedonism" className={radioStyle} type="radio" name="philosophy" value="hedonism" onChange={handleChange} defaultChecked />
+                            <label for="hedonism" className="">Hedonism</label>
+                            <input id="existentialism" className={radioStyle} type="radio" name="philosophy" value="existentialism" onChange={handleChange} />
+                            <label for="existentialism" className="">Existentialism</label>
+                            <input id="nihilism" className={radioStyle} type="radio" name="philosophy" value="nihilism" onChange={handleChange} />
+                            <label for="nihilism" className="">Nihilism</label>
                         </div>
                     </div>
                 </form>
