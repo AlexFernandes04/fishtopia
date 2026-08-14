@@ -8,7 +8,7 @@ blur = cv2.GaussianBlur(gray, (55, 55), 0)
 _, thresh = cv2.threshold(blur, 127, 255, cv2.THRESH_BINARY_INV)
 edge = cv2.Canny(blur, 5, 10)
 
-k = np.ones((15, 15), np.uint8) 
+k = np.ones((13, 13), np.uint8) 
 dilated = cv2.dilate(edge, k, 1)  
 
 # contours, _ = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)

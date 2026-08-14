@@ -69,7 +69,7 @@ def process_image(nparr):
     _, thresh = cv2.threshold(blur, 127, 255, cv2.THRESH_BINARY_INV)
     edge = cv2.Canny(blur, 5, 10)
 
-    k = np.ones((15, 15), np.uint8) 
+    k = np.ones((9, 9), np.uint8) 
     dilated = cv2.dilate(edge, k, 1)  
 
     contours, _ = cv2.findContours(dilated, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
