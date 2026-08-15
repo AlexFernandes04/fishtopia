@@ -109,16 +109,28 @@ import { sound } from '@pixi/sound';
 
   const volumeButton = new VolumeButton(Assets.get("/assets/volume-on.svg"), Assets.get("/assets/volume-off.svg"), sound);
   volumeButton.x = app.canvas.width - (volumeButton.width)
-  volumeButton.y = window.innerHeight - (volumeButton.height)/2 - 20
+  volumeButton.y = window.innerHeight - (volumeButton.height) / 2 - 20
 
   app.stage.addChild(volumeButton);
 
   const labelButton = new LabelButton(uiLayer)
   labelButton.x = (labelButton.width) / 1.5
-  labelButton.y = window.innerHeight - (labelButton.height)/2 - 20
+  labelButton.y = window.innerHeight - (labelButton.height) / 2 - 20
   app.stage.addChild(labelButton);
 
   labelButton.onclick = (event) => {
+    if (labelButton.showLabels) {
+      labelButton.text.text = "Show Names"
+      fishes.forEach((fish) => fish.ui.visible = false);
+    } else {
+      labelButton.text.text = "Hide Names"
+      fishes.forEach((fish) => fish.ui.visible = true);
+    }
+    labelButton.showLabels = !labelButton.showLabels
+  }
+
+
+  labelButton.ontap = (event) => {
     if (labelButton.showLabels) {
       labelButton.text.text = "Show Names"
       fishes.forEach((fish) => fish.ui.visible = false);

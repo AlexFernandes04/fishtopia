@@ -4,12 +4,21 @@ import { sound } from '@pixi/sound';
 export class VolumeButton extends Container {
     muted = false;
     radius = 30;
+    _sizeFactor = 1
     image
     onTexture
     offTexture
 
     constructor(onTexture, offTexture, sound) {
         super();
+
+        if (window.innerWidth < 1024) {
+            this._sizeFactor = 0.5
+        } else {
+            this._sizeFactor = 1
+        }
+
+        this.radius = this.radius * this._sizeFactor
 
         const bg = new Graphics()
             .circle(0, 0, this.radius)
@@ -25,24 +34,32 @@ export class VolumeButton extends Container {
         this.image.width = this.radius
         this.image.height = this.radius
 
-        this.image.x = -this.radius/2
-        this.image.y = -this.radius/2
+        this.image.x = -this.radius / 2
+        this.image.y = -this.radius / 2
 
 
         this.eventMode = "static"
 
         this.onclick = (event) => {
-            if(this.muted){
-                this.image.texture = this.onTexture
-                sound.unmuteAll()
-            } else {
-                this.image.texture = this.offTexture
-                sound.muteAll()
-            }
-            this.muted = !this.muted
+            this.handleClick()
+        }
+
+        this.ontap = (event) => {
+            this.handleClick()
         }
 
         this.addChild(bg);
         this.addChild(this.image)
+    }
+
+    handleClick() {
+        if (this.muted) {
+            this.image.texture = this.onTexture
+            sound.unmuteAll()
+        } else {
+            this.image.texture = this.offTexture
+            sound.muteAll()
+        }
+        this.muted = !this.muted
     }
 }
