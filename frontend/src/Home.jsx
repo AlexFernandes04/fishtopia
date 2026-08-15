@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
 import { FileUploader } from "react-drag-drop-files";
-import "./App.css"
+import "./app.css"
 const fileTypes = ["JPG", "PNG"];
 
 function Home() {

@@ -132,13 +132,13 @@ export class Fish extends Container {
       }
     } else {
       if (this._philosophy == "stoicism") {
-        const thoughts = ["We suffer more often in imagination than in reality", "It is not the fish who has too little, but the fish who craves more, that is poor", "I believe that the universe is rational", "I can only control where I swim"]
+        const thoughts = ["I must not waste time by just floating around aimlessly", "It is not the fish who has too little, but the fish who craves more, that is poor", "I believe in always being the bigger fish, morally speaking", "I can only control where I choose swim"]
         return thoughts[Math.floor(probability) - 3]
       } else if (this._philosophy == "utilitarianism") {
         const thoughts = ["I believe in the greater good of all fish", "I sure hope my swimming is not wrongly interfering with the other fish here", "Really hope all the other fish here are also happy", "The morality of my actions is determined on how it affects other fish"]
         return thoughts[Math.floor(probability) - 3]
       } else if (this._philosophy == "hedonism") {
-        const thoughts = ["I like being happy", "I would rather be happy than sad", "Good thing I'm not suffering right now", "I'm having a great time swimming so I'll probably keep doing this"]
+        const thoughts = ["It really is great to be happy", "Every fish for themselves", "Good thing I'm not suffering right now", "I'm having a great time swimming so I'll probably keep doing this"]
         return thoughts[Math.floor(probability) - 3]
       } else if (this._philosophy == "existentialism") {
         const thoughts = ["My freedom to choose where to swim is causing me dread", "Am I condemned to keep swimming forever", "I believe I am not bound by any destiny in choosing where to swim", "I struggle to find meaning in my existence as a fish"]

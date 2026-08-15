@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from "react-router"
 import { useState, useEffect } from 'react';
-import "./App.css"
-import "../public/underwater.PNG"
+import "./app.css"
+import "../public/underwater.png"
 
 function App() {
     const { state } = useLocation()
