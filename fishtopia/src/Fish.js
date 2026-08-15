@@ -28,21 +28,22 @@ export class Fish extends Container {
 
     this.addChild(this.fishView);
 
-    this._sociallvl = sociallvl;
-    this._speed = this._speed * speed / 2
-    this._anxiety = (anxietylvl - 1) / 4
-    this._sleepTime = sleephabits
-    this._sleepCutoff = (this._sleepTime + sleeplength * 2) % 24
-    this._philosophy = philosophy
-    this._size = size
-
     if (window.innerWidth < 1024) {
       this._sizeFactor = 0.5
     } else {
       this._sizeFactor = 1
     }
 
-    this.fishView.scale.set(0.5 * this._xdirection * size * this._sizeFactor / 3, 0.5 * size * this._sizeFactor / 3)
+    this._sociallvl = sociallvl;
+    this._speed = this._speed * speed * this._sizeFactor / 2
+    this._anxiety = (anxietylvl - 1) / 4
+    this._sleepTime = sleephabits
+    this._sleepCutoff = (this._sleepTime + sleeplength * 2) % 24
+    this._philosophy = philosophy
+    this._size = size
+
+
+    this.fishView.scale.set(0.7 * this._xdirection * size * this._sizeFactor / 3, 0.7 * size * this._sizeFactor / 3)
     this.fishView.eventMode = 'static';
 
     this.ui = new CharacterUI(name);

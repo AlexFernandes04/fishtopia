@@ -68,7 +68,7 @@ import { sound } from '@pixi/sound';
   displacementMap.source.wrapMode = 'repeat';
 
   const displacementSprite = Sprite.from(displacementMap);
-  const displacementFilter = new DisplacementFilter(displacementSprite, 30);
+  const displacementFilter = new DisplacementFilter(displacementSprite, 20);
 
   pondContainer.addChild(displacementSprite);
   pondContainer.filters = [displacementFilter];
