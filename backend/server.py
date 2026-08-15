@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, send_file
+from flask import Flask, request, jsonify, send_file, render_template, send_from_directory
 from flask_cors import CORS
 
 import cv2
@@ -7,14 +7,33 @@ import numpy as np
 import uuid
 import pandas as pd
 
+import os
+
+current_dir = os.path.abspath(os.path.dirname(__file__))
+
 app = Flask(__name__)
+
 CORS(app, origins=["*"])
 
-@app.route('/', methods=['GET'])
-def main_page():
-    return ('YOU HAVE NOW ENTERED PLANET FISH')
+#serving frontends
+@app.route('/')
+@app.route("/<path:path>")
+def main_page(path=""):
+    if path:
+        return send_from_directory("../fishtopia/dist", path)
 
-@app.route('/initial-upload', methods=['POST'])
+    return send_from_directory("../fishtopia/dist", "index.html")
+
+@app.route("/fishupload/")
+def fishupload_index():
+    return send_from_directory("../frontend/dist", "index.html")
+
+
+@app.route("/fishupload/<path:path>")
+def fishupload_path(path):
+    return send_from_directory("../frontend/dist", path)
+
+@app.route('/api/initial-upload', methods=['POST'])
 def initial_upload():
     name = request.form.get('name')
     file = request.files.get('file')
@@ -29,7 +48,7 @@ def initial_upload():
 
         return response
 
-@app.route('/final-upload', methods=['POST'])
+@app.route('/api/final-upload', methods=['POST'])
 def final_upload():
     id = uuid.uuid1()
     file = request.files.get("image")
@@ -49,13 +68,13 @@ def final_upload():
     
     return ("ok")
 
-@app.route("/database", methods=["GET"])
+@app.route("/api/database", methods=["GET"])
 def database():
     database = pd.read_csv("database.csv")
     databaseList = database.to_numpy().tolist()
     return databaseList
 
-@app.route("/image/<id>.png", methods=["GET"])
+@app.route("/api/image/<id>.png", methods=["GET"])
 def returnImage(id):
     response = send_file(f"./fishes/{id}.png", mimetype="image/png")
     return response
@@ -69,7 +88,7 @@ def process_image(nparr):
     _, thresh = cv2.threshold(blur, 127, 255, cv2.THRESH_BINARY_INV)
     edge = cv2.Canny(blur, 5, 10)
 
-    k = np.ones((9, 9), np.uint8) 
+    k = np.ones((11, 11), np.uint8) 
     dilated = cv2.dilate(edge, k, 1)  
 
     contours, _ = cv2.findContours(dilated, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)

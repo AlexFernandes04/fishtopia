@@ -40,7 +40,7 @@ function Home() {
       formData.append("name", name);
       formData.append("file", file);
 
-      const backendURL = "http://127.0.0.1:5000/initial-upload"
+      const backendURL = "/api/initial-upload"
       try {
         const response = await fetch(backendURL, { method: "POST", body: formData })
         if (!response.ok) {

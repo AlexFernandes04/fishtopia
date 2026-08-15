@@ -19,7 +19,7 @@ import { sound } from '@pixi/sound';
   app.canvas.style.top = `${window.innerHeight / 2 - app.canvas.height / 2}px`;
   app.canvas.style.left = `${window.innerWidth / 2 - app.canvas.width / 2}px`;
 
-  const backendURL = "http://127.0.0.1:5000/database"
+  const backendURL = "/api/database"
   const response = await fetch(backendURL);
   if (!response.ok) {
     throw new Error(`Response status: ${response.status}`);
@@ -29,7 +29,7 @@ import { sound } from '@pixi/sound';
   const assets = []
 
   for (let i = 0; i < result.length; i++) {
-    assets.push(`http://127.0.0.1:5000/image/${result[i][0]}.png`)
+    assets.push(`/api/image/${result[i][0]}.png`)
   }
 
   assets.push(`https://pixijs.com/assets/pond/displacement_map.png`)

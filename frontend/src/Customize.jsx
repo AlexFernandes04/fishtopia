@@ -56,18 +56,18 @@ function App() {
         console.log("form submitted: ", inputs)
 
         try {
-            const response = await fetch("http://127.0.0.1:5000/final-upload", { method: "POST", body: formData })
+            const response = await fetch("/api/final-upload", { method: "POST", body: formData })
             if (!response.ok) {
                 throw new Error(`Response status: ${response.status}`)
             }
 
-            if (response.data = "ok") {
+            if (response.data = "ok") {                    
                 console.log("success")
+                window.location.href = "/"
             }
         } catch (e) {
             console.log(e)
         }
-
     }
 
     function goBack(e) {

@@ -7,7 +7,7 @@ import Customize from "./Customize.jsx";
 const root = document.getElementById("root");
 
 ReactDOM.createRoot(root).render(
-  <BrowserRouter>
+  <BrowserRouter basename="/fishupload">
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/editor" element={<Customize />} />
