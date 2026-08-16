@@ -15,11 +15,11 @@ export class CharacterUI extends Container {
     const label = new Text({
       text: name,
       resolution: 2,
-      style: { fontSize: 16 * this._sizeFactor, fill: 0x000000 },
+      style: { fontSize: 15 * this._sizeFactor, fill: 0x000000 },
       anchor: 0.5,
     });
 
-    const padding = 10 * this._sizeFactor;
+    const padding = 8 * this._sizeFactor;
 
     const bg = new Graphics()
       .roundRect(
