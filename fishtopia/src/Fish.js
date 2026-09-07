@@ -74,7 +74,7 @@ export class Fish extends Container {
     }
 
     if (this._sleeping) {
-      this.y = this.y + Math.sin(Date.now() / (500 * this.offset)) * 0.4
+      this.y = this.y + Math.sin(Date.now() / (500 * this.offset)) * 0.4 * this._sizeFactor
     } else {
 
       const flip = Math.random()
@@ -85,7 +85,7 @@ export class Fish extends Container {
         this.fishView.scale.x = this.fishView.scale.x * -1
       }
 
-      this.y = this.y + Math.sin(Date.now() / (500 * this.offset)) * 0.4
+      this.y = this.y + Math.sin(Date.now() / (500 * this.offset)) * 0.4 * this._sizeFactor
 
       this.x += this._speed * this._xdirection;
 

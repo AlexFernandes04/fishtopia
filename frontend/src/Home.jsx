@@ -65,14 +65,14 @@ function Home() {
     <div className='text-center md:p-8 p-4 h-screen w-screen text-gray-800'>
       <h1 className='md:text-7xl text-5xl font-bold text-black'>WELCOME TO FISHTOPIA</h1>
       <div className='lg:text-lg md:px-16 px-4 md:py-8 py-4 font-semibold'>
-        Fishtopia is a haven for drawn fish. To join Fishtopia, enter your name, draw a picture of your fish or other aquatic creature on a piece of paper, take a picture and upload it below. Your drawing will be transported to Fishtopia wihere it will join the ranks of other people's drawings
+        Fishtopia is the future. To join Fishtopia, enter your name, draw a picture of your fish or other aquatic creature on a piece of paper, take a picture, and upload it below. Your drawing will be transported to Fishtopia where it will join the ranks of other people's drawings
       </div>
       <div className='text-lg'>
-        <h2 className='text-xl'>Here are some tips for your making your drawing and taking the photo</h2>
+        <h2 className='text-xl'>Here are some tips to help get your fish into Fishtopia</h2>
         <ul className='text-left px-8 py-4'>
           <li>- Make sure your fish is facing right</li>
           <li>- Ensure your drawing is a continuous closed shape. The thicker the outline, the better the extraction will be</li>
-          <li>- Make your drawing on a blank piece of paper with nothing else in frame except for the drawing (Don't include the outline of the paper, etc)</li>
+          <li>- Make your drawing on a blank piece of paper and take a photo with nothing else in frame except for the drawing (Don't include the outline of the paper, etc)</li>
           <li>- Avoid shadows in your picture by taking it next to a bright light source or using flash in dim lighting</li>
           <l1>- If it still isn't working just call Alex</l1>
         </ul>

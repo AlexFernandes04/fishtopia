@@ -1,7 +1,6 @@
 import { useLocation, useNavigate } from "react-router"
 import { useState, useEffect } from 'react';
 import "./app.css"
-import "../public/underwater.png"
 
 function App() {
     const { state } = useLocation()
@@ -41,7 +40,7 @@ function App() {
         inputs["speed"] = inputs["speed"] || e.target.speed.value
         inputs["sleeplength"] = inputs["sleeplength"] || e.target.sleeplength.value
         inputs["sleephabits"] = inputs["sleephabits"] || e.target.sleephabits.value
-        inputs["philosophy"] = inputs["philosophy"] || e.target.sleephabits.value
+        inputs["philosophy"] = inputs["philosophy"] || e.target.philosophy.value
 
         const formData = new FormData();
         formData.append("name", name);
@@ -84,7 +83,7 @@ function App() {
         <h1 className="md:p-8 p-4 text-4xl lg:text-6xl font-bold text-center">{state ? name : ""}'s fish</h1>
         <div className="lg:grid lg:grid-cols-2">
             <div className="lg:px-8 px-4">
-                <div className="bg-[url(../public/underwater.PNG)] bg-cover rounded-4xl border-8 border-gray-100 p-16 w-full h-full bg-center">
+                <div className="bg-[url(../underwater.png)] bg-cover rounded-4xl border-8 border-gray-100 p-16 w-full h-full bg-center">
                     <div className="floating place-self-center">
                         <img src={imageUrl}></img>
                     </div>
