@@ -3,6 +3,7 @@ import { Application, Assets, Container, DisplacementFilter, RenderLayer, Sprite
 import { Fish } from './Fish';
 import { VolumeButton } from './VolumeButton';
 import { LabelButton } from "./LabelButton"
+import { Sunlight } from './Sunlight';
 import { sound } from '@pixi/sound';
 
 (async () => {
@@ -33,14 +34,14 @@ import { sound } from '@pixi/sound';
   }
 
   assets.push(`https://pixijs.com/assets/pond/displacement_map.png`)
-  assets.push(`https://static.vecteezy.com/system/resources/thumbnails/045/850/168/small_2x/deep-sea-underwater-professional-advertising-foodgraphy-photo.jpg`)
+  assets.push(`https://static.vecteezy.com/system/resources/thumbnails/073/564/861/small_2x/underwater-view-of-sun-rays-penetrating-clear-deep-blue-ocean-water-illuminating-the-sandy-seabed-with-rocks-photo.jpg`)
   assets.push(`/assets/volume-on.svg`)
   assets.push(`/assets/volume-off.svg`)
 
   // Load textures
   await Assets.load(assets);
 
-  const background = Sprite.from('https://static.vecteezy.com/system/resources/thumbnails/045/850/168/small_2x/deep-sea-underwater-professional-advertising-foodgraphy-photo.jpg');
+  const background = Sprite.from('https://static.vecteezy.com/system/resources/thumbnails/073/564/861/small_2x/underwater-view-of-sun-rays-penetrating-clear-deep-blue-ocean-water-illuminating-the-sandy-seabed-with-rocks-photo.jpg');
   const bgAspectRatio = background.width / background.height
   const appAspectRatio = window.innerWidth / window.innerHeight
 
@@ -63,6 +64,9 @@ import { sound } from '@pixi/sound';
 
   app.stage.addChild(pondContainer);
 
+  const sunlight = new Sunlight();
+  pondContainer.addChild(sunlight);
+  
   const displacementMap = Assets.get('https://pixijs.com/assets/pond/displacement_map.png');
 
   displacementMap.source.wrapMode = 'repeat';
@@ -150,5 +154,7 @@ import { sound } from '@pixi/sound';
     const time = currentDate.getHours() + currentDate.getMinutes() / 60
 
     fishes.forEach((fish) => fish.update(ticker, time));
+
+    sunlight.update(ticker, time)
   });
 })();
